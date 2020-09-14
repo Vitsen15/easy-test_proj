@@ -42,7 +42,7 @@
                     <ul class="navbar-nav ml-auto">
                         @auth
                             <li>
-                                <a class="nav-link" href="{{ url('/profile') }}">My Profile</a>
+                                <a class="nav-link" href="{{ route('user-profile', auth()->user()->id) }}">My Profile</a>
                             </li>
                         @endauth
                         <!-- Authentication Links -->
@@ -63,8 +63,7 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                        onclick="event.preventDefault();
+                                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>

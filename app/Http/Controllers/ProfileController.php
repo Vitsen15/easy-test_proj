@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\User;
 use Illuminate\Http\Request;
 
 class ProfileController extends Controller
@@ -17,15 +18,9 @@ class ProfileController extends Controller
         $this->middleware('auth');
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function index()
+    public function showProfileById(User $user)
     {
-        $posts = Post::where('user_id', auth()->user()->id)->paginate(15);
-        $user = auth()->user();
+        $posts = Post::where('user_id', $user->id)->orderBy('created_at', 'desc')->paginate(15);
 
         return view('profile', ['posts' => $posts, 'user' => $user]);
     }
