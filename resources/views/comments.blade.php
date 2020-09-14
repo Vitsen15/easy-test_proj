@@ -6,11 +6,11 @@
             <div class="container">
                 <div class="row justify-content-center mb-3">
                     @auth
-                        <form class="col-8">
+                        <form action="{{ route('add-comment') }}" class="col-8">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Comment</label>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows=""></textarea>
-                                <small id="emailHelp" class="form-text text-muted">No more than 2000 characters</small>
+                                <label for="commentText">Comment</label>
+                                <textarea class="form-control" name="comment" id="commentText" rows="4"></textarea>
+                                <small id="commentHelp" class="form-text text-muted">No more than 2000 characters</small>
                             </div>
                             <button type="submit" class="btn btn-primary">Comment</button>
                         </form>
