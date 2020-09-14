@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StorePost;
 use App\Post;
-use Illuminate\Http\Request;
 
 class CommentsController extends Controller
 {
@@ -18,5 +18,14 @@ class CommentsController extends Controller
         $posts = Post::latest()->paginate(15);;
 
         return view('comments', ['posts' => $posts]);
+    }
+
+    public function addComment(StorePost $request)
+    {
+        $data = $request->validated();
+
+        auth()->user()->createPost($data['comment']);
+
+        return redirect('/')->with(['message' => 'Comment has been successfully added.']);
     }
 }

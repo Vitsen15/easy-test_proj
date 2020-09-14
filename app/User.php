@@ -43,4 +43,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Post::class);
     }
+
+    public function createPost(string $text)
+    {
+        return $this->posts()->create(['text' => $text]);
+    }
 }

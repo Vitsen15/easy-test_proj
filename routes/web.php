@@ -20,4 +20,6 @@ Route::get('/', 'CommentsController@index')->name('comments');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/profile', 'ProfileController@index')->name('profile');
+    
+    Route::post('/add-comment', 'CommentsController@addComment')->name('add-comment');
 });
