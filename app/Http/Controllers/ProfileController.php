@@ -25,7 +25,8 @@ class ProfileController extends Controller
     public function index()
     {
         $posts = Post::where('user_id', auth()->user()->id)->paginate(15);
+        $user = auth()->user();
 
-        return view('profile', ['posts' => $posts]);
+        return view('profile', ['posts' => $posts, 'user' => $user]);
     }
 }

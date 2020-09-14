@@ -8,9 +8,9 @@
                     User info
                 </div>
                 <div class="card-body">
-                    <p class="card-text">Name: {{ auth()->user()->name }}</p>
-                    <p class="card-text">Email: {{ auth()->user()->email }}</p>
-                    <p class="card-text">Registration date: {{ auth()->user()->created_at->format('Y-m-d') }}</p>
+                    <p class="card-text">Name: {{ $user->name }}</p>
+                    <p class="card-text">Email: {{ $user->email }}</p>
+                    <p class="card-text">Registration date: {{ $user->created_at->format('Y-m-d') }}</p>
                 </div>
             </div>
 
