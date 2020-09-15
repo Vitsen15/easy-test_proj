@@ -39,7 +39,13 @@
                         @foreach ($posts as $post)
                             <div class="card mb-2">
                                 <div class="card-header">Commented {{ $post->created_at->diffForHumans() }} by
-                                    <a href="{{ route('user-profile', $post->user->id) }}">{{ $post->user->name }}</a>
+                                    @role('admin')
+                                        <a href="{{ route('user-profile', $post->user->id) }}">{{ $post->user->name }}</a>
+                                    @else
+                                        <span>{{ $post->user->name }}</span>
+                                    @endrole
+
+                                    @include('snippets.modal.delete-comment-button')
                                 </div>
 
                                 <div class="card-body">

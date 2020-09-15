@@ -16,9 +16,14 @@
 
             <div class="col-md-8">
                 <h1 class="mb-3">User comments:</h1>
+
                 @foreach ($posts as $post)
                     <div class="card mb-2">
-                        <div class="card-header">Commented {{ $post->created_at->diffForHumans() }}</div>
+                        <div class="card-header">
+                            <span>Commented {{ $post->created_at->diffForHumans() }}</span>
+
+                            @include('snippets.modal.delete-comment-button', ['post' => $post])
+                        </div>
 
                         <div class="card-body">
                             {{ $post->text }}

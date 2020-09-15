@@ -20,6 +20,7 @@ Route::get('/', 'CommentsController@index')->name('comments');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/profile/{user}', 'ProfileController@showProfileById')->name('user-profile');
-    
-    Route::post('/add-comment', 'CommentsController@addComment')->name('add-comment');
+
+    Route::post('/add-comment', 'CommentsController@create')->name('add-comment');
+    Route::delete('/drop-comment/{comment}', 'CommentsController@destroy')->name('drop-comment');
 });

@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Comment;
 use App\Http\Requests\StorePost;
-use App\Post;
 
 class CommentsController extends Controller
 {
@@ -36,5 +36,12 @@ class CommentsController extends Controller
         auth()->user()->createPost($data['comment']);
 
         return redirect('/')->with(['message' => 'Comment has been successfully added.']);
+    }
+
+    public function destroy(Comment $comment)
+    {
+        $comment->delete();
+
+        return response()->json(['message' => 'Comment has been deleted.']);
     }
 }

@@ -25,7 +25,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">Comments</a>
+                <a class="navbar-brand" href="{{ url('/') }}">Main</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                     aria-label="{{ __('Toggle navigation') }}">
@@ -83,6 +83,8 @@
             @yield('content')
         </main>
     </div>
+
+    @include('snippets.modal.delete-confirmation-modal')
 </body>
 
 </html>
