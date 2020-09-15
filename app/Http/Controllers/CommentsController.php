@@ -7,6 +7,15 @@ use App\Post;
 
 class CommentsController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     /**
      * Show the comments dashboard.
@@ -15,12 +24,12 @@ class CommentsController extends Controller
      */
     public function index()
     {
-        $posts = Post::latest()->paginate(15);;
+        $posts = Comment::latest()->paginate(15);;
 
         return view('comments', ['posts' => $posts]);
     }
 
-    public function addComment(StorePost $request)
+    public function create(StorePost $request)
     {
         $data = $request->validated();
 

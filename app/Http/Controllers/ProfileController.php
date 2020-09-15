@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Post;
+use App\Comment;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -20,7 +20,7 @@ class ProfileController extends Controller
 
     public function showProfileById(User $user)
     {
-        $posts = Post::where('user_id', $user->id)->orderBy('created_at', 'desc')->paginate(15);
+        $posts = Comment::where('user_id', $user->id)->orderBy('created_at', 'desc')->paginate(15);
 
         return view('profile', ['posts' => $posts, 'user' => $user]);
     }
