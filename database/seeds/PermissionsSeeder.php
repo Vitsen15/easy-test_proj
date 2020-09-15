@@ -22,12 +22,14 @@ class PermissionsSeeder extends Seeder
         $editPostsPermission = Permission::create(['name' => 'edit posts']);
         $deletePostsPermission = Permission::create(['name' => 'delete posts']);
         $blockUserPermission = Permission::create(['name' => 'block user']);
+        $unblockUserPermission = Permission::create(['name' => 'unblock user']);
 
         // Assign admin permissions.
         $adminRole->givePermissionTo($createPostsPermission);
         $adminRole->givePermissionTo($editPostsPermission);
         $adminRole->givePermissionTo($deletePostsPermission);
         $adminRole->givePermissionTo($blockUserPermission);
+        $adminRole->givePermissionTo($unblockUserPermission);
 
         // Assign user permissions.
         $userRole->givePermissionTo($createPostsPermission);
