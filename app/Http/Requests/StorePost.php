@@ -24,7 +24,7 @@ class StorePost extends FormRequest
     public function rules()
     {
         return [
-            'comment' => 'required|string|min:5|max:1000'
+            'comment' => 'required|string|min:2|max:1000'
         ];
     }
 
